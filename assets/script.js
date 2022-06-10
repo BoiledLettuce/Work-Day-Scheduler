@@ -1,5 +1,5 @@
-var saveButton = document.querySelector(".saveBtn");
-
+// var saveButton = document.querySelector(".saveBtn"); //does not work
+var saveButton = $(".saveBtn");
 
 var today = moment();
 $("#currentDay").text(moment().format('ll LT')); //preset format from https://devhints.io/moment
@@ -24,11 +24,37 @@ function timeColors() {
 
 };
 
+// saveButton.addEventListener("click", function() //does not work
+
+saveButton.on("click", function() {
+
+    console.log("CLICKED THO");
+
+    var time = $(this).siblings(".hour").text();
+    var plan = $(this).siblings(".plan").val();
+
+    localStorage.setItem(time, plan);
+});
 
 
+function savePlans() {
+
+    console.log("CLICKED THO2");
+
+    $(".hour").each(function() {
+        
+        var currentHour = $(this).text();
+        var currentPlans = localStorage.getItem(currentHour);
 
 
+        if (currentPlans !== null) {
+            $(this).siblings(".plan").val(currentPlans);
+        }
+    });
+}
 
-// CALLING ALL FUNCTIONS DO YOU READ ME
+
+// CALLING ALL FUNCTIONS DO YOU READ
 
 timeColors();
+savePlans();
