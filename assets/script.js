@@ -28,7 +28,7 @@ function timeColors() {
 
 saveButton.on("click", function() {
 
-    console.log("CLICKED THO");
+    console.log("CLICKED");
 
     var time = $(this).siblings(".hour").text();
     var plan = $(this).siblings(".plan").val();
@@ -39,7 +39,7 @@ saveButton.on("click", function() {
 
 function savePlans() {
 
-    console.log("CLICKED THO2");
+    console.log("CLICKED2");
 
     $(".hour").each(function() {
         
